@@ -1,0 +1,12 @@
+<h2>Tickets</h2>
+
+<ul>
+  <li *ngFor="let t of ticketsVM$ | async">
+    <button [disabled]="updatingTicket[t.id]" (click)="onToggleTicket(t.id)">
+      <span>{{ t.completed ? 'Un-complete' : 'Complete' }}</span>
+    </button>
+    <a routerLink="{{ t.id }}">Ticket: {{ t.id }}, {{ t.description }}</a>
+    <span>{{ t.assignee }}</span>
+  </li>
+</ul>
+<p *ngIf="loading$ | async">Loading tickets...</p>

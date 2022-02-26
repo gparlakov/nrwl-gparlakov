@@ -1,0 +1,6 @@
+<h2>Ticket</h2>
+<ng-container *ngIf="ticket$ | async as t; else loading">
+    <p>{{ t.id }}: {{ t.description }}</p>
+    <span>{{t.completed ? 'Completed' : 'Uncompleted' }}</span>
+</ng-container>
+<ng-template #loading>Loading ticket ...</ng-template>
